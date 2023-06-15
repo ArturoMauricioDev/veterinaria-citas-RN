@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import {paciente} from './Formulario';
 
@@ -21,11 +21,33 @@ const Paciente = ({item}: PacienteProps) => {
   };
 
   return (
-    <View>
-      <Text>{paciente}</Text>
-      <Text>{formatearFecha(fecha)}</Text>
+    <View style={styles.contenedor}>
+      <Text style={styles.label}>Paciente:</Text>
+      <Text style={styles.texto}>{paciente}</Text>
+      <Text style={styles.fecha}>{formatearFecha(fecha)}</Text>
     </View>
   );
 };
+const styles = StyleSheet.create({
+  contenedor: {
+    backgroundColor: '#FFF',
+    padding: 20,
+    borderBottomColor: '#94a3b8',
+    borderBottomWidth: 1,
+  },
+  label: {
+    color: '#374151',
+    textTransform: 'uppercase',
+    fontWeight: '700',
+  },
+  texto: {
+    color: '#6D28D9',
+    fontSize: 20,
+    fontWeight: '700',
+  },
+  fecha: {
+    color: '#374151',
+  },
+});
 
 export default Paciente;
